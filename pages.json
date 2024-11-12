@@ -1,0 +1,82 @@
+{
+	"pages": [{
+			"path": "pages/index/index"
+		},
+		{
+			"path": "pages/manga/manga",
+			"style": {
+				"navigationBarTitleText": "漫画"
+			}
+		},
+		{
+			"path": "pages/music/music",
+			"style": {
+				"navigationBarTitleText": "音乐"
+			}
+		},
+		{
+			"path": "pages/book/book",
+			"style": {
+				"navigationBarTitleText": "小说"
+			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "画境华章",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"uniIdRouter": {},
+	"tabBar": {
+		"borderStyle": "white",
+		"backgroundColor": "#FFFFFF",
+		"list": [{
+				"pagePath": "pages/manga/manga",
+				"text": "漫画",
+				"iconPath": "static/icon/manga.png",
+				"selectedIconPath": "static/icon/manga_hl.png",
+				"iconfont": {
+					"color": "#ccc",
+					"selectedColor": "#2a7aed"
+				}
+			},
+			{
+				"pagePath": "pages/music/music",
+				"text": "音乐",
+				"iconPath": "static/icon/music.png",
+				"selectedIconPath": "static/icon/music_hl.png",
+				"iconfont": {
+					"color": "#ccc",
+					"selectedColor": "#2a7aed"
+				}
+			},
+			{
+				"pagePath": "pages/book/book",
+				"text": "小说",
+				"iconPath": "static/icon/book.png",
+				"selectedIconPath": "static/icon/book_hl.png",
+				"iconfont": {
+					"color": "#ccc",
+					"selectedColor": "#2a7aed"
+				}
+			},
+			{
+				"pagePath": "pages/user/user",
+				"text": "我的",
+				"iconPath": "static/icon/user.png",
+				"selectedIconPath": "static/icon/user_hl.png",
+				"iconfont": {
+					"color": "#ccc",
+					"selectedColor": "#2a7aed"
+				}
+			}
+		]
+	}
+}
