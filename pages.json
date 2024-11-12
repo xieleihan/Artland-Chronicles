@@ -31,6 +31,12 @@
 			"style": {
 				"navigationBarTitleText": "漫画详情"
 			}
+		},
+		{
+			"path": "pages/manga/mangaPages",
+			"style": {
+				"navigationBarTitleText": "漫画图片"
+			}
 		}
 	],
 	"globalStyle": {
