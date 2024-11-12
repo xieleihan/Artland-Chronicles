@@ -20,7 +20,7 @@
 				</view>
 			</view>
 		</view>
-		<view class="other">
+		<view class="other" @click="goToClassificationPages">
 			<img src="/static/icon/more.png" alt="" />
 			<span>查看更多</span>
 		</view>
@@ -52,6 +52,12 @@
 		console.log(comic_id)
 		uni.navigateTo({
 			url: '/pages/manga/mangaInfo?comic_id=' + comic_id
+		})
+	}
+
+	function goToClassificationPages() {
+		uni.navigateTo({
+			url: '/pages/manga/mangaClassification'
 		})
 	}
 </script>

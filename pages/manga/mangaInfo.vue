@@ -24,6 +24,31 @@
 				{{mangaEvaluate}}
 			</view>
 
+			<!-- 评论 -->
+			<view class="review">
+				<view class="reviewTop">
+					<span>精选评论</span>
+					<view class="">
+						<span class="more">查看更多</span>
+						<img src="/static/icon/left.png" alt="" />
+					</view>
+				</view>
+				<view class="reviewContainer">
+					<view class="item" v-for="(item,index) in mangaComment_short" :key="index">
+						<view class="left">
+							<img class="avater" :src="`${item.face}`" alt="" />
+						</view>
+						<view class="right">
+							<view class="username">
+								{{item.nick_name}}
+							</view>
+							<view class="content">
+								{{item.content}}
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
 		</view>
 
 		<!-- 底部目录区域 -->
@@ -92,7 +117,8 @@
 	const last_short_title_msg = ref('') // 漫画最后一话信息
 	const ep_list = ref([]) // 漫画章节列表
 	const isDirectory = ref(false) // 控制目录开关
-	const mangaComment = ref({})
+	const mangaComment = ref([]) // 漫画所有评论
+	const mangaComment_short = ref([]) // 短评
 
 	const host : string = "https://manga.hdslb.com" // 漫画代理地址
 	const suffix : string = "@660w.webp" // 拼接的后缀(可以更换成@600w.jpg,@1000w.webp,@1000w.jpg)
@@ -123,10 +149,19 @@
 		get('manga', `GetReviewDetailByComicID?comicId=${comic_id.value}`)
 			.then((res) => {
 				console.log(res)
+				const str = JSON.stringify(res)
+				const obj = JSON.parse(str)
+				mangaComment.value = obj.data.short_reviews
+				// const mangaCommentLength = mangaComment.value.length
+				for (let i = 0; i < 6; i++) {
+					mangaComment_short.value.push(mangaComment.value[i])
+				}
 			})
 			.catch((err) => {
 				console.log("获取精选漫画点评出错", err)
 			})
+
+
 	});
 
 	function openDirectory() {
@@ -331,6 +366,7 @@
 			height: calc(100dvh - 450rpx);
 			overflow-y: scroll;
 			box-sizing: border-box;
+			padding-bottom: 150rpx;
 
 			.title {
 				font-weight: bold;
@@ -363,6 +399,83 @@
 				}
 			}
 
+			.review {
+				width: 100%;
+				height: 500rpx;
+
+				.reviewTop {
+					width: 100%;
+					height: 100rpx;
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					font-weight: bold;
+					font-size: 40rpx;
+
+					img {
+						width: 40rpx;
+						height: 40rpx;
+						transform: rotate(-180deg);
+						margin-left: 15rpx;
+						vertical-align: middle;
+					}
+
+					.more {
+						font-size: 24rpx;
+						color: #ccc;
+						font-weight: 500;
+						line-height: 100rpx;
+					}
+				}
+
+				.reviewContainer {
+					width: 100%;
+					height: 400rpx;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					flex-wrap: wrap;
+
+					.item {
+						width: 48%;
+						height: 120rpx;
+						display: flex;
+						background-color: white;
+						border: 1px solid #ccc;
+						border-radius: @radius;
+						padding: 20rpx;
+						box-sizing: border-box;
+
+						.left {
+							margin-right: 15rpx;
+
+							.avater {
+								width: 50rpx;
+								height: 50rpx;
+								border-radius: 50%;
+
+							}
+						}
+
+						.right {
+							display: flex;
+							flex-direction: column;
+							width: 70%;
+
+							.username,
+							.content {
+								overflow: hidden;
+								white-space: nowrap;
+								text-overflow: ellipsis;
+							}
+
+							.username {
+								font-weight: bold;
+							}
+						}
+					}
+				}
+			}
 		}
 
 		.directoryBox {

@@ -37,6 +37,12 @@
 			"style": {
 				"navigationBarTitleText": "漫画图片"
 			}
+		},
+		{
+			"path": "pages/manga/mangaClassification",
+			"style": {
+				"navigationBarTitleText": "漫画分类"
+			}
 		}
 	],
 	"globalStyle": {
