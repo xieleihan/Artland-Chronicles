@@ -25,6 +25,12 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
+		},
+		{
+			"path": "pages/manga/mangaInfo",
+			"style": {
+				"navigationBarTitleText": "漫画详情"
+			}
 		}
 	],
 	"globalStyle": {

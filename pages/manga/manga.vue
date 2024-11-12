@@ -10,12 +10,22 @@
 				{{bannerTitle}}
 			</view>
 		</view>
+
+		<div class="search">
+			<input class="searchInput" type="text" placeholder="请输入你要搜索的漫画信息" />
+			<button class="searchBtn">全站搜索</button>
+		</div>
+
+		<HomemangaListVue />
 	</view>
 </template>
 
 <script lang="ts" setup>
 	import { onMounted, ref } from 'vue';
 	import { get, post } from '@/api/request'
+
+	// 导入组件
+	import HomemangaListVue from '../../commponents/HomemangaList.vue';
 
 	const bannerList = ref([])
 	const bannerTitle = ref('')
@@ -82,6 +92,41 @@
 					height: 100%;
 					border-radius: 15rpx;
 				}
+			}
+		}
+
+		.search {
+			width: 100%;
+			height: 100rpx;
+			margin: 20rpx 0;
+
+			position: relative;
+			box-sizing: border-box;
+
+			.searchInput {
+				width: 100%;
+				height: 100%;
+				border: none;
+				outline: none;
+				border: 1px solid #ccc;
+				border-radius: @radius;
+				box-sizing: border-box;
+				padding-left: 20rpx;
+				padding-right: 220rpx;
+			}
+
+			.searchBtn {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 220rpx;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				color: white;
+				border-radius: @radius;
+				background-color: @themeColor;
 			}
 		}
 	}
