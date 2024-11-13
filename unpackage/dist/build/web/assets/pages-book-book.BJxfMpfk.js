@@ -1,0 +1,1 @@
+import{c as o,o as s,i as e}from"./index-Dup31IlJ.js";import{_ as r}from"./_plugin-vue_export-helper.BCo6x5W8.js";const a=r({},[["render",function(r,a){const t=e;return s(),o(t,{class:"book"})}],["__scopeId","data-v-f5d8674b"]]);export{a as default};

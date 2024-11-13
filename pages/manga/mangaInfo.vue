@@ -105,7 +105,7 @@
 	import { onMounted, ref, getCurrentInstance } from 'vue';
 	import { get, post } from '@/api/request';
 	import { onLoad } from '@dcloudio/uni-app'
-	import url from '@/api/index'
+	import { mangaUrl } from '@/api/index'
 
 	const comic_id = ref(''); // 这是漫画id
 	const mangaInfo = ref({} as mangainfoItem); // 漫画对象
@@ -169,6 +169,10 @@
 	}
 
 	async function lookManga() {
+		uni.showLoading({
+			title: '加载中'
+		})
+
 		let ep_idList = []; // 先拿到id数组
 		let ep_idListUrl = []; // 拼接一下要请求的数组
 		let ep_hostListUrl = []; // 代理地址
@@ -180,7 +184,7 @@
 			ep_idList.push(ep_list.value[i].id)
 		}
 		for (let i = 0; i < ep_listLength; i++) {
-			ep_idListUrl.push(url + '/GetImageIndex?epId=' + ep_idList[i])
+			ep_idListUrl.push(mangaUrl + '/GetImageIndex?epId=' + ep_idList[i])
 		}
 		for (let i = 0; i < ep_listLength; i++) {
 			await uni.request({
@@ -200,7 +204,7 @@
 		}
 		// console.log("代理地址:", ep_hostListUrl) // 全部拿到了
 		for (let i = 0; i < ep_hostListUrl.length; i++) {
-			await get('manga', '/ImageToken?urls=["' + ep_hostListUrl[i] + '"]')
+			await get('manga', 'ImageToken?urls=["' + ep_hostListUrl[i] + '"]')
 				.then((res) => {
 					console.log(res)
 					const str = JSON.stringify(res)
@@ -216,6 +220,7 @@
 			key: 'mangaList',
 			data: ep_imageUrl,
 			success: function () {
+				uni.hideLoading();
 				uni.navigateTo({
 					url: '/pages/manga/mangaPages'
 				})

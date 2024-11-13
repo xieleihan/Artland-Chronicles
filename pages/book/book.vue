@@ -1,8 +1,17 @@
 <template>
+	<view class="book">
+
+	</view>
 </template>
 
-<script>
+<script lang="ts" setup>
 </script>
 
-<style>
+<style lang="less" scoped>
+	@import url('../../static/public.less');
+
+	.book {
+		width: 100dvw;
+		height: @startHeight;
+	}
 </style>
