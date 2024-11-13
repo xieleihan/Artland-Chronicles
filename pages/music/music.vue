@@ -14,12 +14,16 @@
 				</swiper-item>
 			</swiper>
 		</view>
+		<MusicRecommend></MusicRecommend>
+		<NewMusicList></NewMusicList>
 	</view>
 </template>
 
 <script lang="ts" setup>
 	import { onMounted, ref } from 'vue';
 	import { get, post } from '@/api/request'
+	import MusicRecommend from '@/commponents/MusicRecommend.vue'
+	import NewMusicList from '@/commponents/NewMusicList.vue'
 
 	const musicBannerList = ref([]) // 音乐页面banner图列表
 
