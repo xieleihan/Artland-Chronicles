@@ -16,6 +16,9 @@
 		</view>
 		<MusicRecommend></MusicRecommend>
 		<NewMusicList></NewMusicList>
+		<MusicDjprogram></MusicDjprogram>
+		<MusicPrivatecontentVue></MusicPrivatecontentVue>
+		<MusicMvfirstVue></MusicMvfirstVue>
 	</view>
 </template>
 
@@ -24,6 +27,9 @@
 	import { get, post } from '@/api/request'
 	import MusicRecommend from '@/commponents/MusicRecommend.vue'
 	import NewMusicList from '@/commponents/NewMusicList.vue'
+	import MusicDjprogram from '@/commponents/MusicDjprogram.vue'
+	import MusicPrivatecontentVue from '@/commponents/MusicPrivatecontent.vue';
+	import MusicMvfirstVue from '@/commponents/MusicMvfirst.vue';
 
 	const musicBannerList = ref([]) // 音乐页面banner图列表
 

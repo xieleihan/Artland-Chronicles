@@ -135,6 +135,17 @@
 								font-weight: bold;
 								margin-bottom: 5rpx;
 							}
+
+							.artists {
+								display: flex;
+
+								span {
+									display: block;
+									margin-right: 5rpx;
+									border: 1px solid #ccc;
+									padding: 5rpx 10rpx;
+								}
+							}
 						}
 					}
 				}
